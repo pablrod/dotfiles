@@ -1,0 +1,19 @@
+# bash completion for perl                                 -*- shell-script -*-
+
+_rex()
+{   
+    COMPREPLY=()
+    local rex_command=$1 cur=$2 prev=$3 words=("${COMP_WORDS[@]}")
+
+    if [[ "$cur" == -* ]]; then
+        #echo "Mostrando guiones"
+        COMPREPLY=( $( compgen -W '`rex -h | tail -n +2 | head -n -1 | cut -d " " -f 3 | cut -d "|" -f 1`'-- "$cur" ) )
+    else
+        #echo "Mostrando tareas"
+        cur=${COMP_WORDS[COMP_CWORD]}
+        COMPREPLY=( $( compgen -W \
+            '`rex -Tq | grep -v "no tasks defined." | tail -n +2 | cut -d " " -f 2`' \
+            -- "$cur" ) )
+    fi    
+} &&
+complete -F _rex rex

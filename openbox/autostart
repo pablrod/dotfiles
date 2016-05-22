@@ -1,0 +1,8 @@
+xsetroot -solid black
+
+xterm +sb -fg grey -bg black &
+xterm +sb -fg grey -bg black &
+xterm +sb -fg grey -bg black &
+xterm +sb -fg grey -bg black &
+
+firefox 
