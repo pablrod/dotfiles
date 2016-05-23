@@ -1,0 +1,20 @@
+§ ==========================================================
+§  User Macros
+§ ==========================================================
+
+SetMacro( 'AUTHOR',      'Pablo Rodríguez González' )
+SetMacro( 'AUTHORREF',   '' )
+SetMacro( 'COMPANY',     '' )
+SetMacro( 'COPYRIGHT',   '' )
+SetMacro( 'EMAIL',       'my name separated by dots at a big search giant email service' )
+SetMacro( 'LICENSE',     'Artistic' )
+SetMacro( 'ORGANIZATION','Computing Things' )
+
+SetStyle( 'default' )
+
+§ ==========================================================
+§  File Includes and Shortcuts
+§ ==========================================================
+
+IncludeFile( 'comments.templates' )
+

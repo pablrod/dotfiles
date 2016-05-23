@@ -1,0 +1,159 @@
+== Comments.end-of-line-comment == append, nomenu ==
+# <CURSOR>
+== Comments.frame == map:cfr, sc:f  ==
+#-------------------------------------------------------------------------------
+#  <CURSOR>
+#-------------------------------------------------------------------------------
+== Comments.function == map:cfu, sc:f  ==
+#===  FUNCTION  ================================================================
+#         NAME: |?FUNCTION_NAME|
+#      PURPOSE: <CURSOR>
+#   PARAMETERS: ????
+#      RETURNS: ????
+#  DESCRIPTION: ????
+#       THROWS: no exceptions
+#     COMMENTS: none
+#     SEE ALSO: n/a
+#===============================================================================
+== Comments.method == map:cme, sc:m  ==
+#===  CLASS METHOD  ============================================================
+#        CLASS: |?CLASSNAME|
+#       METHOD: |?METHODNAME|
+#   PARAMETERS: ????
+#      RETURNS: ????
+#  DESCRIPTION: <CURSOR>
+#       THROWS: no exceptions
+#     COMMENTS: none
+#     SEE ALSO: n/a
+#===============================================================================
+== Comments.file description pl == map:chpl, sc:d, start, noindent ==
+#!/usr/bin/env perl -w
+#===============================================================================
+# AUTHOR : |AUTHOR| (|AUTHORREF|)
+# CREATED: |DATE| |TIME|
+#===============================================================================
+use 5.022001;
+use strict;
+use warnings;
+use utf8;
+
+use Const::Fast;
+use English qw(-no_match_vars);
+use Getopt::Long::Descriptive;
+
+my ($opt, $usage) = 
+    describe_options( '%c %o',
+                      [ '|?SCRIPTPARAMETER|','|?PARAMETERDESCRIPTION|'],
+                      [],
+                      [ 'help', 'Show help and terminate']
+    );
+
+print( $usage->text), exit if $opt->help;
+
+<CURSOR>
+
+== Comments.file description pm == map:chpm, sc:d, start, noindent ==
+package |FILENAME|;
+#===============================================================================
+# AUTHOR : |AUTHOR| (|AUTHORREF|)
+# CREATED: |DATE| |TIME|
+#===============================================================================
+use 5.022001;
+use strict;
+use warnings;
+use English qw(-no_match_vars);
+use Const::Fast;
+use namespace::autoclean;
+
+=encoding utf8
+
+=head1 NAME
+
+|FILENAME| - |?SHORTDESCRIPTION|;
+
+=head1 SYNOPSIS
+
+    |?SYNOPSIS|
+
+=head1 DESCRIPTION
+
+|SHORTDESCRIPTION|
+
+=head1 INSTANCE METHODS
+
+=cut
+
+<CURSOR>
+
+=head1 CLASS METHODS
+
+=cut
+
+1; 
+== Comments.file description t == map:cht, sc:d, start, noindent ==
+#!/usr/bin/env perl -w
+#===============================================================================
+# AUTHOR : |AUTHOR| (|AUTHORREF|)
+# CREATED: |DATE| |TIME|
+#===============================================================================
+use 5.022001;
+use strict;
+use warnings;
+use utf8;
+
+use English qw(-no_match_vars);
+use Const::Fast;
+use Test::Most tests => 1;
+
+=encoding utf8
+
+=head1 NAME
+
+|?TESTSDESCRIPTION|
+
+=head1 TESTS
+
+=cut
+
+BEGIN {
+ use_ok('|?MODULETOTEST|');
+}
+
+<CURSOR>
+
+== Comments.file description pod == map:chpo, sc:d, start ==
+#===============================================================================
+# AUTHOR : |AUTHOR| (|AUTHORREF|)
+# CREATED: |DATE| |TIME|
+#===============================================================================
+
+== Comments.date == insert, map:cd, sc:d ==
+|DATE|<CURSOR>
+== Comments.date+time == insert, map:ct, sc:t ==
+|DATE| |TIME|<CURSOR>
+== ENDTEMPLATE ==
+
+== LIST: comments_keywords == hash ==
+  'BUG'         : ':BUG:|DATE| |TIME|:|AUTHORREF|:',
+  'REMARK'      : ':REMARK:|DATE| |TIME|:|AUTHORREF|:',
+  'TODO'        : ':TODO:|DATE| |TIME|:|AUTHORREF|:',
+  'WARNING'     : ':WARNING:|DATE| |TIME|:|AUTHORREF|:',
+  'WORKAROUND'  : ':WORKAROUND:|DATE| |TIME|:|AUTHORREF|:',
+  'new keyword' : ':{+NEW_KEYWORD+}:|DATE| |TIME|:|AUTHORREF|:',
+== LIST: comments_macros == hash ==
+  'AUTHOR'       : '|AUTHOR|',
+  'AUTHORREF'    : '|AUTHORREF|',
+  'COMPANY'      : '|COMPANY|',
+  'COPYRIGHT'    : '|COPYRIGHT|',
+  'EMAIL'        : '|EMAIL|',
+  'ORGANIZATION' : '|ORGANIZATION|',
+== ENDLIST ==
+
+== Comments.keyword comments == expandmenu, append, map:ck, sc:k ==
+|PickList( 'keyword comment', 'comments_keywords' )|
+ # |PICK| <CURSOR>
+== Comments.macros == expandmenu, insert, map:cma, sc:m ==
+|PickList( 'macro', 'comments_macros' )|
+|PICK|<CURSOR>
+== ENDTEMPLATE ==
+
