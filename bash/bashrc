@@ -9,6 +9,7 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
+stty -ixon
 
 # TODO Create .basrc.d and load everything there
 export NVM_DIR="/home/Nabu/.nvm"
