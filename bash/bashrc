@@ -11,6 +11,7 @@ fi
 # User specific aliases and functions
 stty -ixon
 
-# TODO Create .basrc.d and load everything there
-export NVM_DIR="/home/Nabu/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+for bashrc in `ls ~/.bashrc.d/`
+do
+    . ~/.bashrc.d/$bashrc
+done
